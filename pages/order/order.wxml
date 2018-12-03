@@ -1,0 +1,31 @@
+<!--pages/order/order.wxml-->
+<view class="header">海间北岛餐厅</view>
+<i-tabs current="{{ current }}" color="#ff4200" bindchange="handleChange">
+    <i-tab key="tab1" title="全部"></i-tab>
+    <i-tab key="tab2" title="配送中"></i-tab>
+    <i-tab key="tab3" title="已完成"></i-tab>
+</i-tabs>
+
+<view class="order">
+	<view class="order_list">
+		<view class="order_num">
+			<view>
+				<view>订单编号：1234586</view>
+				<view style="color: #ff4200;">配送中</view>
+			</view>
+			<view class="order_info">
+				<image mode="widthFix" src="../../static/img/cart.png"></image>
+				<view>
+					<view class="title">红毛蟹</view>
+					<view class="spec">口味：不辣</view>
+					<view class="price"><text>¥136.00</text> <text> X2</text></view>
+				</view>
+			</view>
+			<text class="totol_price">
+				共两件商品 合计：¥272.00
+			</text>
+			
+			
+		</view>
+	</view>
+</view>

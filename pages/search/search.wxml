@@ -1,0 +1,54 @@
+<!--pages/search/search.wxml-->
+<view class="header">海间北岛</view>
+<view class="main">
+	<view class="serch-input">
+		 <icon type="search" size="26rpx"/>
+		 <input selection-start="20" bindconfirm="search" bindinput="inputeidt" value="{{value}}" selection-end="2" type="text" confirm-type="search" placeholder="请输入商品名称" placeholder-class="placeholder"/>
+		 <view class="cancel" bindtap="search">取消</view>
+	</view>
+	
+	<!-- 搜索结果 -->
+	<view class="search_box" wx:if="{{resultshow}}">
+		<view>
+			<view class="result_list">
+				<image mode="widthFix" src="../../static/img/search.png"></image>
+				<view>
+					<view class="title">特级红毛蟹</view>
+					<view class="info">特大14现货阳澄湖大闸蟹鲜活的
+全母蟹8只礼盒装</view>
+					<view class="biaoqian">
+						<text>新人领劵优惠哦</text>
+						<text>积分商城兑换商品</text>
+					</view>
+					<view class="price">
+						<view>¥168.00</view>
+						<image style="width: 50rpx;margin-right: -38rpx;" mode="widthFix" src="../../static/icon/serchcart.png"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+	</view>
+	
+	
+	<!-- 热门搜索 -->
+	<view>
+		<view class="hot_title">热门搜索</view>
+		<view class="hot_search">
+			<view class="hot_search_item" wx:for="{{hotSerch}}" >{{item}}</view>
+		</view>
+		
+	</view>
+	<!-- 搜索历史 -->
+	<view>
+		<view class="history_title" >
+			<view>搜索历史</view>
+			<view bindtap="deleteHistory"><i-icon type="trash" size="24" color="#393939" /></view>
+		</view>
+		<view class="history_item">
+			<view wx:for="{{HistoryList}}" >{{item}}</view>
+			
+		</view>
+	</view>
+</view>
+

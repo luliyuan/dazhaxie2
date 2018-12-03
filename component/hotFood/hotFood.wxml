@@ -1,0 +1,34 @@
+<!--component/artItem/artItem.wxml-->
+<view>
+	<view class="swiper">
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{imgUrls}}">
+				<swiper-item>
+					<image src="{{item}}" class="slide-image" />
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view>
+		<view class="goods-list">
+			<view>
+				<image src="../../static/img/goods.png"></image>
+				<view class="bottomTitle">
+					<text>预定鲜活</text>
+					<button>帝王蟹！拼着吃</button>
+				</view>
+			</view>
+			<view>
+				<image src="../../static/img/goods.png"></image>
+				<view class="bottomTitle"></view>
+			</view>
+			<view>
+				<image src="../../static/img/goods.png"></image>
+				<view class="bottomTitle"></view>
+			</view>
+			
+	
+		</view>
+	</view>
+	
+</view>

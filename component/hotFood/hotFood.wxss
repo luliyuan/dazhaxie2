@@ -1,0 +1,59 @@
+image {
+	width: 100%;
+	height: 267rpx;
+}
+
+.swiper {
+	
+	height: 267rpx;
+}
+.swiper swiper{
+	
+	height: 267rpx;
+}
+
+.goods-list{
+	padding-left:11px;
+	padding-right:11px;
+	padding-top: 5rpx;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	
+}
+.goods-list >view{
+	width: 346rpx;
+	height: 384rpx;
+	position: relative;
+	margin-top: 11rpx;
+}
+.goods-list view image{
+	width: 100%;
+	height: 100%;
+}
+.goods-list .bottomTitle{
+	position: absolute;
+	bottom: 0;
+	background: #011422;
+	z-index: 1;
+	opacity: 0.8;
+	height: 80rpx;
+	width: 100%;
+	line-height: 80rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.bottomTitle text{
+	color: #FFFFFF;
+	font-size: 20rpx;
+}.bottomTitle button{
+	width: 175rpx;
+	height: 50rpx;
+	background: #ff2265;
+	color: #FFFFFF;
+	font-size: 20rpx;
+	padding: 0;
+	margin: 0;
+	margin-left: 12rpx;
+}

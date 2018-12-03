@@ -1,0 +1,89 @@
+<!--pages/details/details.wxml-->
+<view class="header">海间北岛餐厅</view>
+<view class="main">
+	<view>
+		<image class="detailsimg" mode="widthFix" src="{{goodsimgsrc}}"></image>
+		<view style="position: relative;border-bottom: 1px solid #f8f8f8;">
+			<view class="goods_title">
+				<view class="title">{{goodsTitle}}</view>
+
+			</view>
+			<view class="goodsInfotitle">
+				{{goodsinfo}}
+			</view>
+			<view class="price">
+				￥{{price}}
+			</view>
+			<!-- 分享按钮 -->
+			<image class="share_button" mode="widthFix" src="../../static/icon/sharebutton.png"></image>
+		</view>
+		<view class="assemble">
+			<!-- <view class="assemble1">
+				<view style="">拼团价￥158</view>
+				<view>*分享3次以上即可享受拼团价</view>
+			</view>
+			<view class="assemblebutton">拼团价购买</view> -->
+			<view>优惠</view>
+			<view>分享页面给两位微信好友，立减10元。</view>
+			
+		</view>
+		<view class="express">
+			<view>快递：10.00</view>
+			<view style="margin-left: 160rpx;">月销7890</view>
+			<view></view>
+		</view>
+		<!-- 详情 -->
+		<view class="info">
+			<image style="width: 308rpx;margin: 0 auto;display: block;margin-bottom: 27rpx;" mode="widthFix" src="../../static/img/shangpinxiangqing.png"></image>
+			<view>
+
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 加入购物车 -->
+<view class="addCart">
+	<view class="cartImg">
+		<i-badge count="3">
+			<image mode="widthFix" style="width: 50rpx;" src="../../static/icon/cart.png"></image>
+		</i-badge>
+	</view>
+	<view class="tobuy" bindtap="gobuy">
+		<view>168元</view>
+		<view>直接购买</view>
+	</view>
+	<view class="tosharebuy" bindtap="gobuy">
+		<view>158元</view>
+		<view>分享购买</view>
+	</view>
+</view>
+<!-- 规格参数 -->
+<view class="specno {{specshow?'spec':''}}" wx:hidden="{{specshow}}">
+	<view class="close" bindtap="cloceSpec">X</view>
+	<view class="spec_data">
+		<view class="goods_info">
+			<image class="cart_img" mode="widthFix" src="{{specData.specimg.img}}"></image>
+		</view>
+		<view class="cart_info">
+			<view>{{specData.specimg.name}}</view>
+			<view class="cart_price">¥{{specData.specimg.price}}</view>
+			<view>已售出{{specData.specimg.num}}</view>
+		</view>
+	</view>
+	<view class="selcet">
+		<view>口味选择</view>
+		<view class="selcet_item">
+			<view  wx:for="{{specData.specList}}">{{item}}</view>
+		</view>
+		<view class="bottom"></view>
+	</view>
+	<view class="buy_num">
+		<view>购买数量</view>
+		<view class="cart-count-box">
+			<text class="cart-count-down" bindtap="minusCount">-</text>
+			<text class="cart-count-num">{{cartNum}}</text>
+			<text class="cart-count-add" bindtap="addCount">+</text>
+		</view>
+	</view>
+	<view class="confirm">确定</view>
+</view>

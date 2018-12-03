@@ -1,0 +1,65 @@
+<!--pages/home/home.wxml-->
+<view>
+	<view class="serch" style="background: url(/static/img/homebanner.png) no-repeat; background-size: cover;">
+		<view class="mytitle">海间北岛餐厅</view>
+		<navigator url="/pages/search/search"> 
+			<view class="serch-input">
+				<icon class="weui-icon-search_in-box" type="search" size="14" color="#00899f"></icon>
+				<input type="text" disabled="true" placeholder="搜索你想要的岛上美食" placeholder-style="color:#00899f" />
+			</view>
+		</navigator>
+		
+	</view>
+	
+	<!-- tab -->
+	<view style="position: relative;">
+		<view class= "home-tab">
+			<view class="{{showtab==1?'active':''}}"  data-selecttab = "1" bindtap='selectTab'>热卖</view>
+			<view class="{{showtab==2?'active':''}}"  data-selecttab = "2" bindtap='selectTab'>外卖熟食</view>
+			<view class="{{showtab==3?'active':''}}"  data-selecttab = "3" bindtap='selectTab'>鲜活水产</view>
+			<view class="{{showtab==4?'active':''}}"  data-selecttab = "4" bindtap='selectTab'>冰冻海鲜</view>
+			<view class="{{showtab==5?'active':''}}"  data-selecttab = "5" style="border-right:none" bindtap='selectTab'>餐厅预定</view>
+		</view>
+
+		<!-- 轮播图 -->
+		<!-- <view class="swiper">
+			<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+				<block wx:for="{{imgUrls}}">
+					<swiper-item>
+						<image src="{{item}}" class="slide-image" />
+					</swiper-item>
+				</block>
+			</swiper>
+		</view> -->
+		
+	
+
+
+		<hotFood wx:if="{{showtab==1}}"></hotFood>
+		<takeOutFood wx:if="{{showtab==2}}"></takeOutFood>
+	</view>
+		
+		<!-- 商品列表 -->
+		<!-- <view >
+			<view class="goods-list">
+				<image class="goodsImg" src="../../static/img/goods.png"></image>
+				<view class="goods-info">
+					<view class="title">油焖大闸蟹</view>
+					<view class="info">阳澄湖大闸蟹又名金爪蟹。</view>
+					<view class="info2">产于苏州阳澄湖。</view>
+					<view class="goods-label">
+						<view>新人领劵优惠哦</view>
+						<view>积分商城兑换商品</view>
+						<view class="assemble">拼团商品</view>	
+					</view>
+					<view class="price">
+						<text>￥98</text>
+						<button class="myAssemble">我要拼</button>	
+					</view>	
+				</view>
+			</view>
+		</view>
+ -->
+	
+
+</view>

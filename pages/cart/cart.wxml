@@ -1,0 +1,76 @@
+<view class="header">海间北岛餐厅</view>
+<view class="main">
+	<view wx:if="{{hasList}}">
+		<view class="cart-box">
+			<view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+				<view class="check">
+					<icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}" class="cart-pro-select" bindtap="selectList" />
+					<icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" />
+				</view>
+				<view>
+					<image class="cart-thumb" src="{{item.image}}"></image>
+				</view>
+
+				<view style="display: flex;flex-direction: column;">
+					<text class="cart-pro-name">{{item.title}}</text>
+					<Select class="slect" prop-array='{{selectArray}}' bind:myget="getDate"></Select>
+					<text class="cart-pro-price">￥{{item.price}}</text>
+				</view>
+
+
+
+
+				<!-- count_box -->
+				<view class="cart-count-box">
+					<text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
+					<text class="cart-count-num">{{item.num}}</text>
+					<text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
+				</view>
+				<!-- <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text> -->
+			</view>
+		</view>
+
+		<view class="cart-footer">
+			<icon wx:if="{{selectAllStatus}}" type="success" color="red" class="total-select" bindtap="selectAll" />
+			<icon wx:else type="circle" color="#a7a7a7" class="total-select" bindtap="selectAll" />
+			<view class="order-icon">
+				<navigator url="../orders/orders">
+					<image src="/image/icon3.png"></image>
+				</navigator>
+			</view>
+			<text style="font-size: 30rpx;">全选</text>
+			<text class="cart-toatl-price">合计: {{totalPrice}}元</text>
+			<navigator><text class="gobuy">去结算</text></navigator>
+		</view>
+	</view>
+	<view class="cart_null" wx:else >
+		<image mode="widthFix" src="../../static/img/cartkong.png"></image>
+		
+		
+		<view class="cart-no-data">您的购物车是空的哦~<navigator><text class="gotomall">点击加购</text></navigator></view>
+	</view>
+</view>
+<!-- 商品推荐 -->
+<view style="padding-bottom: 90rpx;">
+	<view class="goods_title">
+		<image mode="widthFix" src="../../static/img/shangpintuijian.png"></image>
+	</view>
+	<view class="goods_ul">
+		<view class="goods_li">
+			<image mode="widthFix" src="../../static/img/goods_img.png"></image>
+			<view class="mygoods">大闸蟹</view>
+			<view class="priceinfo">
+				<text>￥136.00</text>
+				<text>34人付款</text>
+			</view>
+		</view>
+		<view class="goods_li">
+			<image mode="widthFix" src="../../static/img/goods_img.png"></image>
+			<view class="mygoods">大闸蟹</view>
+			<view class="priceinfo">
+				<text>￥136.00</text>
+				<text>34人付款</text>
+			</view>
+		</view>
+	</view>
+</view>

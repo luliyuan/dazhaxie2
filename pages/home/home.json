@@ -1,0 +1,9 @@
+{
+  
+  "usingComponents": {
+    "takeOutFood": "/component/takeOutFood/takeOutFood",
+		"hotFood":"/component/hotFood/hotFood"
+	
+  },
+	"navigationStyle":"custom"
+}

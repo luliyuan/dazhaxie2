@@ -1,0 +1,38 @@
+<!--component/artItem/artItem.wxml-->
+<view>
+	<view class="swiper">
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{imgUrls}}">
+				<swiper-item>
+					<image src="{{item}}" class="slide-image" />
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view>
+		<view class="goods-list">
+			<image class="goodsImg" src="../../static/img/goods.png"></image>
+			<view class="goods-info">
+				<view class="title">油焖大闸蟹</view>
+				<view class="info">阳澄湖大闸蟹又名金爪蟹。</view>
+				<view class="info2">产于苏州阳澄湖。</view>
+	
+				<!-- 标签 -->
+				<view class="goods-label">
+					<view>新人领劵优惠哦</view>
+					<view>积分商城兑换商品</view>
+					<view class="assemble">拼团商品</view>
+	
+				</view>
+				<view class="price">
+					<text>￥98</text>
+					<button class="myAssemble">我要拼</button>
+	
+				</view>
+	
+			</view>
+	
+		</view>
+	</view>
+	
+</view>
