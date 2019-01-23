@@ -1,0 +1,297 @@
+/* pages/pay/pay.wxss */
+.pay{
+	/* padding-top: 132rpx; */
+	padding-bottom: 90rpx;
+}
+.time{
+	display: flex;
+	justify-content: space-between;
+}
+.pay>view{
+	
+}
+.address{
+	font-size: 27rpx;
+	line-height: 92rpx;
+	background: #FFFFFF;
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+	
+}
+ .order_info{
+	display: flex;
+	justify-content: flex-start;
+	padding-top: 15rpx;
+	align-items: flex-start;
+	background: #FFFFFF;
+	padding-bottom: 15rpx;
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+	
+}
+ .order_info>view{
+	padding-left: 18rpx;
+}
+.order_info image{
+	width: 138rpx;
+	height: 138rpx;
+	border-radius: 10px;
+}
+.title{
+	line-height: 36rpx;
+	color: #000000;
+	font-weight: bold;
+	font-size: 26rpx;
+}
+.spec{
+	color: #8c8c8c;
+	font-size: 22rpx;
+	line-height: 45rpx;
+}
+.price{
+	font-size: 19rpx;
+	color: #ff2020;
+	font-weight: bold;
+	margin-top: 25rpx;
+}
+.price text:last-child{
+	color: #8c8c8c;
+	font-weight: 300;
+	
+}
+.eatmothod{
+
+	
+	margin-top: 20rpx;
+	
+	}
+.eatmothod>view:first-child{
+	line-height: 69rpx;
+	font-size: 20rpx;
+	color: #000000;
+padding-left: 30rpx;
+	padding-right: 30rpx;
+}
+.check{
+	display: flex;
+	font-size: 25rpx;
+	color: #000000;
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+	padding-top: 22rpx;
+	padding-bottom: 22rpx;
+}
+.check view{
+	width: 197rpx;
+	height: 85rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #FFFFFF;
+}
+.check icon{
+	margin-left: 56rpx;
+}
+.check view:last-child{
+	margin-left: 25rpx;
+	border-radius:10px ;
+}
+.goods_info{
+	padding: 0 30rpx;
+	background: #FFFFFF;
+}
+.goods_info >view{
+	line-height: 90rpx;
+	border-bottom: 1px solid #eaeaea;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.goods_info >view text:first-child{
+	font-size: 25rpx;
+	color: #000000;
+	font-weight: bold;
+}
+.goods_info >view text:last-child{
+	font-size: 24rpx;
+}
+.goods_info .total_price view{
+		display: flex;
+		justify-content: flex-end;
+		font-size: 28rpx;
+		
+}
+.goods_info .total_price view text{
+	color: #ff4200;
+	font-size: 26rpx;
+}
+.radio-group{
+	font-size: 24rpx;
+	color: #000000;
+	display: flex;
+	align-items: center;
+}
+.radio-group radio{
+	
+	transform:scale(0.7);
+}
+.radio-group radio:last-child{
+	margin-left: 45rpx;
+}
+.invoice_info{
+	background: #FFFFFF;
+}
+.invoice_info_item{
+	line-height: 86rpx;
+	font-size: 24rpx;
+	color: #000000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 14rpx;
+	
+}
+.invoice_info_item view,.remarks view{
+	font-weight: bold;
+}
+.invoice_info_item input{
+	text-align: right;
+	padding-right: 30rpx;
+}
+.border{
+	width: 92%;
+	border-bottom: 1px solid #eaeaea;
+	margin: 0 auto;
+}
+.remarks{
+	line-height: 86rpx;
+	font-size: 24rpx;
+	color: #000000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 14rpx;
+	background: #FFFFFF;
+	margin-top: 20rpx;
+	
+}
+.remarks input{
+	text-align: right;
+	font-weight: 400;
+}
+.remarks view {
+	display: flex;
+	align-items: center;
+	padding-right: 10rpx;
+}
+.gopay{
+	line-height: 90rpx;
+	border-top: 1px solid #f0f0f0;
+	padding-left: 3%;
+	display: flex;
+	justify-content: space-between;
+	background: #FFFFFF;
+	font-size: 28rpx;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 97%;
+	z-index: 100;
+}
+.gopay view text:first-child{
+	font-weight: bold;
+}
+.gopay view:last-child{
+	background: #ff4200;
+	color: #FFFFFF;
+	width: 210rpx;
+	text-align: center;
+	font-size: 32rpx;
+}
+
+
+.coupon_list {
+	height: 129rpx;
+	margin-top: 30rpx;
+	display: flex;
+}
+
+.coupon_price {
+	width: 195rpx;
+	padding: 20rpx 0 13rpx 0;
+	color: #FFFFFF;
+	text-align: center;
+}
+.price1{
+	line-height: 20rpx;
+}
+.price1 text:first-child {
+	font-size: 46rpx;
+	font-weight: bold;
+	line-height: 79rpx;
+}
+
+.price1 text:last-child {
+	font-size: 21rpx;
+	padding-left: 5rpx;
+	line-height: 79rpx;
+}
+
+.info1 {
+	font-size: 23rpx;
+	line-height: 42rpx;
+}
+.coupon{
+	padding-bottom: 30rpx;
+}
+.coupon_info {
+	padding-top: 20rpx;
+	padding-left: 40rpx;
+	color: #000000;
+	width: auto;
+}
+
+.coupon_info text {
+	display: block;
+	width: auto;
+	width: 425rpx;
+	line-height: 40rpx;
+	color: #8a8a8a;
+	font-size: 22rpx;
+}
+
+.coupon_info text:first-child {
+	color: #000000;
+	line-height: 27rpx;
+	font-size: 26rpx;
+	font-weight: bold;
+}
+
+text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+.myaddress{
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+	background: #FFFFFF;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.myaddress_1{
+	padding-top: 9px;
+	padding-bottom: 9px;
+	line-height: 26px;
+}
+.myaddress_1 view text{
+	font-size: 14px;
+	color: #000000;
+}
+.myaddress_1 view{
+	font-size: 24rpx;
+	color: #6d6d6d;
+}

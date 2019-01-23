@@ -1,6 +1,8 @@
-<view class="header">海间北岛餐厅</view>
+<!-- <view class="header">海间北岛餐厅</view> -->
 <view class="main">
-	<view wx:if="{{hasList}}">
+	<view wx:if="{{carts.length}}">
+		<view class="carcaozuo" bindtap="deletecart" wx:if="{{!deletecart}}">管理</view>
+		<view class="carcaozuo" bindtap="deletecart" wx:else>完成</view>
 		<view class="cart-box">
 			<view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
 				<view class="check">
@@ -8,69 +10,126 @@
 					<icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" />
 				</view>
 				<view>
-					<image class="cart-thumb" src="{{item.image}}"></image>
+					<image mode="scaleToFill" class="cart-thumb" src="{{imgurl}}{{item.imgPath}}"></image>
 				</view>
 
 				<view style="display: flex;flex-direction: column;">
-					<text class="cart-pro-name">{{item.title}}</text>
-					<Select class="slect" prop-array='{{selectArray}}' bind:myget="getDate"></Select>
-					<text class="cart-pro-price">￥{{item.price}}</text>
+					<text class="cart-pro-name">{{item.name}}</text>
+					<!-- <Select class="slect" data-cartId='{{item.cartId}}' prop-array='{{selectArray}}' prop-type='{{item.type}}'
+					 bind:myget="getDate"></Select> -->
+					<view class="kouwei" wx:if="{{item.type==1}}">微辣</view>
+					<view class="kouwei" wx:elif="{{item.type==2}}">中辣</view>
+					<view class="kouwei" wx:elif="{{item.type==3}}">特辣</view>
+					<view style="height: 45rpx;" wx:elif="{{item.type==0}}"></view>
+					
+					<text wx:if="{{item.typeId==1}}" class="cart-pro-price">￥{{item.price}}</text>
+					<text wx:elif="{{item.typeId==2}}" class="cart-pro-price">{{item.price}}积分</text>
 				</view>
-
 
 
 
 				<!-- count_box -->
 				<view class="cart-count-box">
-					<text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
+					<text class="cart-count-down" bindtap="minusCount" data-num="{{item.num}}" data-cartId='{{item.cartId}}' data-obj="{{obj}}"
+					 data-index="{{index}}">-</text>
 					<text class="cart-count-num">{{item.num}}</text>
-					<text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
+					<text class="cart-count-add" bindtap="addCount" data-num="{{item.num}}" data-cartId='{{item.cartId}}' data-index="{{index}}">+</text>
 				</view>
 				<!-- <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text> -->
 			</view>
 		</view>
 
-		<view class="cart-footer">
+		<view class="cart-footer" wx:if="{{deletecart==false}}">
 			<icon wx:if="{{selectAllStatus}}" type="success" color="red" class="total-select" bindtap="selectAll" />
 			<icon wx:else type="circle" color="#a7a7a7" class="total-select" bindtap="selectAll" />
 			<view class="order-icon">
-				<navigator url="../orders/orders">
+				<!-- <navigator url="../orders/orders" hover-class="none">
 					<image src="/image/icon3.png"></image>
-				</navigator>
+				</navigator> -->
 			</view>
 			<text style="font-size: 30rpx;">全选</text>
 			<text class="cart-toatl-price">合计: {{totalPrice}}元</text>
-			<navigator><text class="gobuy">去结算</text></navigator>
+			<!-- <text class="gobuy" bindtap="gobuy">去结算</text> -->
+<!-- 				<view style="width: 162rpx;height: 70rpx;display: block;">
+					<form class="form1" bindsubmit="formSubmit" report-submit="true">
+						<button formType="submit" class='gobuy' bindtap="gobuy">							
+							去结算							
+						</button>
+					</form>
+				</view> -->
+			<!-- formid -->
+			 <view style="width: 162rpx;height: 70rpx;display: block;">
+				<form class="form1" bindsubmit="formSubmit" report-submit="true">
+					<button formType="submit" class='btn'>
+						<view class='aa'>
+							<form bindsubmit="formSubmit" report-submit="true">
+								<button formType="submit" class='btn'>
+									<view class='aa'>
+										<form bindsubmit="formSubmit" report-submit="true">
+											<button formType="submit" class='btn'>
+												<view class='aa'>
+													<form bindsubmit="formSubmit" report-submit="true">
+														<button bindtap="gobuy" formType="submit" class='btn gobuy'>															
+																去结算															
+														</button>
+													</form>
+												</view>
+											</button>
+										</form>
+									</view>
+								</button>
+							</form>
+						</view>
+					</button>
+				</form>
+			</view> 
+
+
+
+
+
+
+
+
+		</view>
+		<view wx:else class="cart-footer">
+			<icon wx:if="{{selectAllStatus}}" type="success" color="red" class="total-select" bindtap="selectAll" />
+			<icon wx:else type="circle" color="#a7a7a7" class="total-select" bindtap="selectAll" />
+			<view class="order-icon">
+				<!-- <navigator url="../orders/orders" hover-class="none">
+					<image src="/image/icon3.png"></image>
+				</navigator> -->
+			</view>
+			<text style="font-size: 30rpx;">全选</text>
+			<text class="cart-toatl-price"></text>
+			<text class="gobuy" bindtap="delete">删除</text>
 		</view>
 	</view>
-	<view class="cart_null" wx:else >
-		<image mode="widthFix" src="../../static/img/cartkong.png"></image>
-		
-		
-		<view class="cart-no-data">您的购物车是空的哦~<navigator><text class="gotomall">点击加购</text></navigator></view>
+	<view class="cart_null" wx:else>
+		<image mode="widthFix" style="height: auto;" src="../../static/img/cartkong.png"></image>
+
+
+		<view class="cart-no-data">您的购物车是空的哦~</view>
 	</view>
 </view>
 <!-- 商品推荐 -->
 <view style="padding-bottom: 90rpx;">
 	<view class="goods_title">
-		<image mode="widthFix" src="../../static/img/shangpintuijian.png"></image>
+		<image mode="widthFix" style="height: auto;" src="../../static/img/shangpintuijian.png"></image>
 	</view>
 	<view class="goods_ul">
-		<view class="goods_li">
-			<image mode="widthFix" src="../../static/img/goods_img.png"></image>
-			<view class="mygoods">大闸蟹</view>
-			<view class="priceinfo">
-				<text>￥136.00</text>
-				<text>34人付款</text>
+		<view class="goods_li" wx:for="{{gogoods}}" data-id="{{item.id}}" bindtap="todetails">
+			<image style="border-radius: 12rpx;" mode="scaleToFill" src="{{imgurl}}{{item.imgPath}}"></image>
+			<view class="mygoods">{{item.name}}</view>
+			<view class="priceinfo" style="display: flex;flex-direction: column;">
+				<!-- <text>￥{{item.price}}</text> -->
+				<view><text style="font-size: 24rpx;text-decoration:line-through;color: #000000; ">¥{{item.price}}</text> <text style="color: #ff4200;font-size: 24rpx;border-left: 1px solid #d0d0d0;line-height: 24rpx;margin-left: 8rpx;padding-left: 5rpx;padding-right: 4rpx;">分享价:</text><text style="color: #ff4200;font-size: 30rpx;">¥{{item.spellGroupPrice}}</text>
+									</view>
+									
+									
+				<text>{{item.buyNum}}人付款</text>
 			</view>
 		</view>
-		<view class="goods_li">
-			<image mode="widthFix" src="../../static/img/goods_img.png"></image>
-			<view class="mygoods">大闸蟹</view>
-			<view class="priceinfo">
-				<text>￥136.00</text>
-				<text>34人付款</text>
-			</view>
-		</view>
+
 	</view>
 </view>

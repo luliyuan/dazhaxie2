@@ -1,0 +1,7 @@
+<!--pages/homeDetail/homeDetail.wxml-->
+<import src="/vendor/wxParse/wxParse.wxml" />
+
+<view>
+	<template is="wxParse" data="{{wxParseData:aHrefHrefData.nodes}}" />
+</view>
+<view wx:if="{{isgobuy}}" class="gobuy" data-id="{{goodsid}}" bindtap="godetail">去购买</view>

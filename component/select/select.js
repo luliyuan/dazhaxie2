@@ -6,6 +6,9 @@ Component({
 	properties: {
 		propArray: {
 			type: Array,
+		},
+		propType:{
+			type:null
 		}
 	},
 	/**

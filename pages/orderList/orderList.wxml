@@ -1,0 +1,31 @@
+<!--pages/orderList/orderList.wxml-->
+<i-tabs current="{{ current }}" color="#ff0000" bindchange="handleChange">
+  <i-tab key="tab1" title="全部"></i-tab>
+  <i-tab key="tab2" title="配送中"></i-tab>
+  <i-tab key="tab3" title="已完成"></i-tab>
+</i-tabs>
+<view class='box'>
+  <view wx:if="{{has == true}}">
+    <scroll-view class='sv' scroll-y='true'>
+        <view class='item'>
+          <view class='item-top'>
+            <view class='number'>编号：12345</view>
+            <view class='state'>配送中</view>
+          </view>
+          <view class='item-body'>
+            <image class='pic'></image>
+
+          </view>
+        </view>
+    </scroll-view>
+  </view>
+  <view class='noneOrder' wx:else>
+    <view class='noneOrder-body'>
+      <image></image>
+      <view class='tips'>还没有订单</view>
+      <view class='sbutips'>
+        您暂时还没有订单~<p>立即下单</p>
+      </view>
+    </view>
+  </view>
+</view>

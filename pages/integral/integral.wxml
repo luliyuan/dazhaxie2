@@ -1,0 +1,6 @@
+<!--pages/integral/integral.wxml-->
+<!-- <view class="header">海间北岛</view> -->
+<view class="integral" wx:for="{{jifen}}">
+	<view>{{item.createTime}}</view>
+	<view>{{item.content}}</view>
+</view>

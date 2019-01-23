@@ -1,0 +1,69 @@
+/* pages/order/order.wxss */
+
+ page {
+	height: 100%;
+}
+ 
+.coupon {
+	padding: 0 30rpx;
+
+}
+
+.coupon_list {
+	height: 166rpx;
+	margin-top: 30rpx;
+	display: flex;
+}
+
+.coupon_price {
+	width: 195rpx;
+	padding: 20rpx 0 13rpx 0;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.price text:first-child {
+	font-size: 46rpx;
+	font-weight: bold;
+	line-height: 79rpx;
+}
+
+.price text:last-child {
+	font-size: 21rpx;
+	padding-left: 5rpx;
+	line-height: 79rpx;
+}
+
+.info {
+	font-size: 23rpx;
+	line-height: 42rpx;
+}
+
+.coupon_info {
+	padding-top: 20rpx;
+	padding-left: 40rpx;
+	color: #000000;
+	width: auto;
+}
+
+.coupon_info text {
+	display: block;
+	width: auto;
+	width: 425rpx;
+	line-height: 42rpx;
+	color: #8a8a8a;
+	font-size: 24rpx;
+}
+
+.coupon_info text:first-child {
+	color: #000000;
+	line-height: 42rpx;
+	font-size: 26rpx;
+	font-weight: bold;
+}
+
+text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

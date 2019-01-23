@@ -1,6 +1,7 @@
 <view class='com-selectBox'>
     <view class='com-sContent' bindtap='selectToggle'>
-        <view class='com-sTxt'>{{ nowText=='' ? propArray[0].text : nowText }}</view>
+        <view class='com-sTxt'>{{ nowText=='' ? propArray[propType-1].text : nowText }}</view> 
+		<!-- <view class='com-sTxt'>{{propType}}</view> -->
         <image src='../../static/img/down.png'  class='com-sImg'  animation="{{animationData}}"></image>
     </view>
     <view class='com-sList' wx:if="{{selectShow}}">

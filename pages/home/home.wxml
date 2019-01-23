@@ -1,46 +1,50 @@
 <!--pages/home/home.wxml-->
-<view>
-	<view class="serch" style="background: url(/static/img/homebanner.png) no-repeat; background-size: cover;">
-		<view class="mytitle">海间北岛餐厅</view>
-		<navigator url="/pages/search/search"> 
-			<view class="serch-input">
-				<icon class="weui-icon-search_in-box" type="search" size="14" color="#00899f"></icon>
+<view style="height: 100%;" class="{{isMsk?'viewnoscroll':''}}">
+	<!-- <scroll-view scroll-y="true" bindscrolltolower="scrolllower"> -->
+	<view class="serch" style=" background-size: cover;">
+		<!-- <view class="mytitle">海间北岛餐厅</view> -->
+
+		<view class="serch-input">
+			<icon class="weui-icon-search_in-box" type="search" size="14" color="#00899f"></icon>
+			<navigator url="/pages/search/search" hover-class="none" style="margin-top: 25rpx;">
 				<input type="text" disabled="true" placeholder="搜索你想要的岛上美食" placeholder-style="color:#00899f" />
+			</navigator>
+			<view class="location" bindtap="chooselocation">
+				<i-icon type="coordinates_fill" size="22" color="#ff4200" />
+				<text style="color: #02e2ee;">{{locations?locations:'正在定位'}}</text>
+				<!-- <i-icon type="unfold" size="22" color="#00e4ff" /> -->
+				<image mode="aspectFit" style="width: 10.5px;height: 7.5px;margin-left: 4px;" src="../../static/icon/home-location.png"></image>
+				
 			</view>
-		</navigator>
-		
+		</view>
 	</view>
-	
 	<!-- tab -->
 	<view style="position: relative;">
-		<view class= "home-tab">
-			<view class="{{showtab==1?'active':''}}"  data-selecttab = "1" bindtap='selectTab'>热卖</view>
-			<view class="{{showtab==2?'active':''}}"  data-selecttab = "2" bindtap='selectTab'>外卖熟食</view>
-			<view class="{{showtab==3?'active':''}}"  data-selecttab = "3" bindtap='selectTab'>鲜活水产</view>
-			<view class="{{showtab==4?'active':''}}"  data-selecttab = "4" bindtap='selectTab'>冰冻海鲜</view>
-			<view class="{{showtab==5?'active':''}}"  data-selecttab = "5" style="border-right:none" bindtap='selectTab'>餐厅预定</view>
+		<view class="home-tab">
+			<view class="{{showtab==1?'active':''}}" data-selecttab="1" bindtap='selectTab'>热卖</view>
+			<view class="{{showtab==2?'active':''}}" data-selecttab="2" bindtap='selectTab'>外卖熟食</view>
+			<view class="{{showtab==3?'active':''}}" data-selecttab="3" bindtap='selectTab'>鲜活水产</view>
+			<view class="{{showtab==4?'active':''}}" data-selecttab="4" bindtap='selectTab'>冰冻海鲜</view>
+			<view class="{{showtab==5?'active':''}}" data-selecttab="5" style="border-right:none" bindtap='selectTab'>餐厅预定</view>
+		</view>
+		<hotFood wx:if="{{showtab==1 && merchantsId }}" onpage="{{onpage}}" merchantsId="{{merchantsId}}"></hotFood>
+		<takeOutFood wx:if="{{showtab==2 && merchantsId }}" onpage="{{onpage}}" merchantsId="{{merchantsId}}"></takeOutFood>
+		<water wx:if="{{showtab==3 && merchantsId }}" onpage="{{onpage}}" merchantsId="{{merchantsId}}"></water>
+		<ice wx:if="{{showtab==4 && merchantsId }}" onpage="{{onpage}}" merchantsId="{{merchantsId}}"></ice>
+
+		<view wx:if="{{showtab==5}}" style="display: block;overflow: hidden;" class="canting">			
+			<image data-type="1" bindtap="getUs" mode="scaleToFill" style="display: block;width: 100%;margin-top: -1px;" src="{{imgurl}}assets/global/img/wx-hello.png"></image>
+			<image data-type="2" bindtap="getUs" mode="scaleToFill" style="display: block;width: 100%;margin-top: -1px;" src="{{imgurl}}assets/global/img/wx-cell.png"></image>
+			<image data-type="3" bindtap="getUs" mode="scaleToFill" style="display: block;width: 100%;margin-top: -1px;" src="{{imgurl}}assets/global/img/wx-us.png"></image>
 		</view>
 
-		<!-- 轮播图 -->
-		<!-- <view class="swiper">
-			<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-				<block wx:for="{{imgUrls}}">
-					<swiper-item>
-						<image src="{{item}}" class="slide-image" />
-					</swiper-item>
-				</block>
-			</swiper>
-		</view> -->
-		
-	
 
 
-		<hotFood wx:if="{{showtab==1}}"></hotFood>
-		<takeOutFood wx:if="{{showtab==2}}"></takeOutFood>
+
 	</view>
-		
-		<!-- 商品列表 -->
-		<!-- <view >
+
+	<!-- 商品列表 -->
+	<!-- <view >
 			<view class="goods-list">
 				<image class="goodsImg" src="../../static/img/goods.png"></image>
 				<view class="goods-info">
@@ -60,6 +64,86 @@
 			</view>
 		</view>
  -->
-	
+	<!-- </scroll-view> -->
+</view>
+
+<!--  卡券 -->
+<view class="ruleZhezhao" wx:if="{{isMsk}}">
+	<view class='ruleZhezhaoContent' style="background: url({{imgurl}}assets/global/img/wx-a.png) no-repeat;background-size: contain;">
+		<view class="title">{{sendVouchers}}</view>
+		<scroll-view style="height: 420rpx;" scroll-y>
+			<view wx:for="{{vouchers}}" class="zhezhaoli" style="background: url({{imgurl}}assets/global/img/wx-b.png) no-repeat;background-size: contain;">
+				<view class="ca_price">
+					<view>¥{{item.price}}</view>
+					<view>满{{item.payMoney}}元可用</view>
+				</view>
+				<view class="ca_info">
+					<view>{{item.title}}</view>
+					<view>
+						<i-icon type="time" size="16" color="#80848f" />
+						<view style="margin-left: 5rpx;">有效期至：{{item.endTime}}</view>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+		
+		<!-- <form bindsubmit="formSubmit" report-submit="true">
+		  <button bindtap="receiveVouchers" hover-class="none" formType="submit" class='btn'>
+			<view  class="vv usebutton" >
+			 全部领取
+			</view>
+		  </button>
+		</form> -->
+		<view style="position: relative;height: 90rpx;">
+			<form bindsubmit="formSubmit" report-submit="true">
+			<button formType="submit" class='btn'>
+				<view class="vv">
+				<form bindsubmit="formSubmit" report-submit="true">
+					<button formType="submit" class='btn'>
+					<view class="vv">
+						<form bindsubmit="formSubmit" report-submit="true">
+						<button formType="submit" class='btn'>
+							<view class="vv">
+							<form bindsubmit="formSubmit" report-submit="true">
+								<button formType="submit" class='btn'>
+								<view class="vv">
+									<form bindsubmit="formSubmit" report-submit="true">
+									<button formType="submit" class='btn'>
+										<view bindtap="receiveVouchers" class="vv usebutton">
+										全部领取
+										</view>
+									</button>
+									</form>
+								</view>
+								</button>
+							</form>
+							</view>
+						</button>
+						</form>
+					</view>
+					</button>
+				</form>
+				</view>
+			</button>
+			</form>
+		</view>
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		<!-- <view bindtap="receiveVouchers" style="margin-top: 25rpx;" class="usebutton">全部领取</view> -->
+		<view bindtap="close">
+			<i-icon class="closezhe" type="close" size="18" color="#FFFFFF" />
+		</view>
+
+	</view>
 
 </view>

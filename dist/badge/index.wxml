@@ -1,5 +1,5 @@
-<view class="i-class i-badge">
+<view class="i-class i-badge" style="overflow: inherit;">
     <slot></slot>
-    <view class="i-badge-dot" wx:if="{{ dot }}"></view>
+    <view style="overflow: inherit;" class="i-badge-dot" wx:if="{{ dot }}"></view>
     <view class="i-badge-count i-class-alone" wx:elif="{{ count !== 0 }}">{{ finalCount }}</view>
 </view>

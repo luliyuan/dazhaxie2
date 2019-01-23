@@ -1,0 +1,19 @@
+/* pages/comPage/start/start.wxss */
+page{
+  background-color: #fff;
+}
+.logo{
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+  width: 340rpx;
+  height: 300rpx;
+}
+.logobth{
+  width: 500rpx;
+}
+.page-start{
+  height: 100%;
+  width: 100%;
+
+}

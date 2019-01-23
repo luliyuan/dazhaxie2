@@ -1,0 +1,22 @@
+/* pages/integral/integral.wxss */
+page{
+	background: #FFFFFF;
+}
+
+.integral:first-child{
+	border-top: 1px solid #e6e6e6;
+}
+.integral{
+	padding: 16rpx 30rpx;
+	border-bottom: 1px solid #e6e6e6;
+}
+.integral view{
+	line-height: 44rpx;
+	color: #000000;
+	font-size: 26rpx;
+}
+.integral view:first-child{
+	line-height: 36rpx;
+	color: #898989;
+	font-size: 22rpx;
+}

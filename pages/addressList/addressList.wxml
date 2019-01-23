@@ -1,0 +1,57 @@
+<!--pages/addressList/addressList.wxml-->
+<!-- <view class="header">海间北岛餐厅</view> -->
+<view wx:if="{{adslist.length}}">
+	<view class='item' wx:for="{{adslist}}"  >
+		<view class='content'  style="position: relative;">
+			<view class='name-phone' data-addressid="{{item.id}}" bindtap="homechoose">
+				<view class='name'>
+					{{item.name}}
+				</view>
+				<view class='phone'>
+					{{item.phone}}
+				</view>
+			</view>
+			<view class='address' data-addressid="{{item.id}}" bindtap="homechoose">
+				{{item.area}}{{item.info}}
+			</view>
+			<view wx:if="{{!item.distance && paychoose}}" style="position: absolute;background: #FFFFFF;opacity: 0.7;height: 100%;width: 100%;top: 0;left: 0;">
+				<image mode="scaleToFill" style="width: 140rpx;height: 120rpx;float: right;margin-right: 12rpx;margin-top: 10rpx;" src="../../static/img/fanwei.png"></image>
+			</view>
+		</view>
+		<view class='buttons'>
+			<view class='default' style="display: flex;align-items: center;"  >
+				<view style="display: flex;align-items: center;" data-eid='{{item.id}}' bindtap='optDefault'>
+					<icon size="16" wx:if="{{item.state}}" type="success" color="red" data-index="{{index}}" class="cart-pro-select"
+					 bindtap="selectList" />
+					<icon size="16" wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" />
+					<view style="margin-left: 8px;">默认地址</view>
+				</view>
+				
+
+			</view>
+
+			
+				<view data-id="{{item.id}}" data-ischoose="{{ischoose}}" data-paychoose="{{paychoose}}"  bindtap="editaddress" class='edit'>
+					<image mode='aspectFit' src="../../static/icon/icon-edit.png"></image>
+					<view>编辑</view>
+				</view>
+			
+			<view class='delete' data-eid='{{item.id}}' bindtap='deleteads'>
+				<image mode='aspectFit' src="../../static/icon/icon-del.png"></image>
+				<view>删除</view>
+			</view>
+		</view>
+	</view>
+
+		<view data-ischoose="{{ischoose}}" data-paychoose="{{paychoose}}"  bindtap="addnewaddress" class='addBtn'>新增收货地址</view>
+	
+</view>
+<view class='noneAddress' wx:else>
+	<view class='noneAddress-body'>
+		<image mode="aspectFit" src="../../static/img/addres.png"></image>
+		<view style="color: #b5b5b5;font-size: 18px;line-height: 60px;text-align: center;">您还没有收货地址哦</view>
+	
+			<view data-ischoose="{{ischoose}}" data-paychoose="{{paychoose}}"  bindtap="addnewaddress" class='addBtn'>新增收货地址</view>
+		
+	</view>
+</view>

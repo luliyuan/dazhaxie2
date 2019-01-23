@@ -1,0 +1,152 @@
+/* pages/selectAddress/selectAddress.wxss */
+/* page {
+
+	padding-top: 132rpx;
+} */
+
+
+.address {
+	font-size: 27rpx;
+	line-height: 92rpx;
+	background: #FFFFFF;
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+
+}
+
+.locationNow {
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+	line-height: 47.5px;
+	font-size: 13.5px;
+	display: flex;
+	justify-content: space-between;
+	background: #FFFFFF;
+}
+
+.locationNow view {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+}
+
+.myaddresstitle {
+	line-height: 27px;
+	padding-left: 30rpx;
+	font-size: 12px;
+	color: #878787;
+}
+
+.myaddress {
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+	background: #FFFFFF;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.myaddress_1 {
+	padding-top: 9px;
+	padding-bottom: 9px;
+	line-height: 26px;
+	width: 80%;
+}
+
+.myaddress_1 view text {
+	font-size: 14px;
+	color: #000000;
+}
+
+.myaddress_1 view {
+	font-size: 11px;
+	color: #6d6d6d;
+}
+
+.gouse {
+	color: #ff4200;
+	font-size: 10px;
+	align-self: flex-start;
+	margin-top: 15px;
+}
+
+
+.searchView {
+	display: flex;
+	font-size: 28rpx;
+	width: 100%;
+	background: #eee;
+	color: #666;
+	z-index: 97;
+
+}
+
+.searchBarInput {
+	background: white;
+	text-align: left;
+	background-size: 29rpx;
+	margin-left: 0;
+
+}
+
+.searchBar {
+	width: 100%;
+	background: white url(http://img.tianxiahuo.cn/public/NetFile/20170715/d5a21638e138fa8f6b17fdb1fe4a49fb.png) no-repeat 30% center;
+	text-align: center;
+	border-radius: 26rpx;
+	margin-top: 18rpx;
+	margin-bottom: 18rpx;
+	background-size: 30rpx;
+	height: 60rpx;
+	margin-left: 3%;
+	margin-right: 3%;
+
+}
+
+searchView button {
+	width: 150rpx;
+
+}
+
+.searchView button {
+	height: 60rpx;
+	background-color: #eee;
+	width: 24%;
+	line-height: 60rpx;
+	margin: 18rpx 0;
+	color: black;
+	font-size: 28rpx;
+	border-color: #eee;
+
+}
+
+.searchView view {
+	margin-top: 18rpx;
+	margin-left: 3%;
+	display: block;
+	float: left;
+	width: 60rpx;
+	height: 60rpx;
+	background: #fff;
+
+}
+.addressCell {
+background-color:white;
+padding:10rpx 20rpx 10rpx 20rpx;
+margin-bottom:5rpx;
+
+}
+.addressse text {
+font-size:30rpx;
+color:#000000;
+}
+.detail text {
+font-size:25rpx;
+color:#666666;
+
+}
+.addressCell view{
+	line-height: 50rpx;
+}
+

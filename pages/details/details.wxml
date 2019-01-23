@@ -1,79 +1,115 @@
 <!--pages/details/details.wxml-->
-<view class="header">海间北岛餐厅</view>
+<import src="/vendor/wxParse/wxParse.wxml" />
+<!-- <view class="header">海间北岛餐厅</view> -->
 <view class="main">
 	<view>
-		<image class="detailsimg" mode="widthFix" src="{{goodsimgsrc}}"></image>
+		<image class="detailsimg" mode="scaleToFill" src="{{imgurl}}{{goods.imgPath}}"></image>
 		<view style="position: relative;border-bottom: 1px solid #f8f8f8;">
 			<view class="goods_title">
-				<view class="title">{{goodsTitle}}</view>
+				<view class="title">{{goods.name}}</view>
 
 			</view>
 			<view class="goodsInfotitle">
-				{{goodsinfo}}
+				{{goods.title}}
 			</view>
-			<view class="price">
-				￥{{price}}
+			<view class="price" wx:if="{{enjoy}}">
+				{{goods.price}}积分
+			</view>
+			<view class="price" wx:else>
+				<view style="color: #000000;text-indent: 8rpx;line-height: 30rpx;margin-top: 10rpx;">¥{{goods.price}}</view>
+				<view style="font-size: 35rpx;line-height: 35rpx;display: flex;align-items: center;"> <view>¥{{goods.spellGroupPrice}}</view>  
+					<view style="font-size: 18rpx;border: 1px solid #ff4200;padding:0 1px;height: 24rpx;line-height: 24rpx;margin-left: 8rpx;">分享价</view>
+				</view>	
 			</view>
 			<!-- 分享按钮 -->
-			<image class="share_button" mode="widthFix" src="../../static/icon/sharebutton.png"></image>
+			<image bindtap="goshare" class="share_button" mode="widthFix" style="width: 50rpx;height: auto;" src="../../static/icon/sharebutton.png"></image>
 		</view>
-		<view class="assemble">
+		<view class="assemble" wx:if="{{!enjoy}}">
 			<!-- <view class="assemble1">
 				<view style="">拼团价￥158</view>
 				<view>*分享3次以上即可享受拼团价</view>
 			</view>
 			<view class="assemblebutton">拼团价购买</view> -->
 			<view>优惠</view>
-			<view>分享页面给两位微信好友，立减10元。</view>
-			
+			<view>分享页面给微信好友，立减{{goods.chajia}}元。</view>
+
 		</view>
 		<view class="express">
-			<view>快递：10.00</view>
-			<view style="margin-left: 160rpx;">月销7890</view>
+			<!-- <view wx:if="{{enjoy}}">配送费：¥{{freight}}</view>
+			<view wx:else>配送费：¥{{freight}}</view> -->
+			<view>销量{{goods.buyNum}}</view>
 			<view></view>
 		</view>
 		<!-- 详情 -->
 		<view class="info">
-			<image style="width: 308rpx;margin: 0 auto;display: block;margin-bottom: 27rpx;" mode="widthFix" src="../../static/img/shangpinxiangqing.png"></image>
+			<image style="width: 308rpx;margin: 0 auto;display: block;margin-bottom: 27rpx;height: 22rpx;" mode="scaleToFill" src="../../static/img/shangpinxiangqing.png"></image>
 			<view>
-
+				<template is="wxParse" data="{{wxParseData:aHrefHrefData.nodes}}" />
 			</view>
 		</view>
 	</view>
 </view>
 <!-- 加入购物车 -->
-<view class="addCart">
-	<view class="cartImg">
-		<i-badge count="3">
-			<image mode="widthFix" style="width: 50rpx;" src="../../static/icon/cart.png"></image>
+<view class="addCart" wx:if="{{enjoy}}">
+
+	<view class="cartImg" bindtap="tocart">
+		<i-badge count="{{goods.shoppingCatNum}}">
+			<image mode="widthFix" style="width: 50rpx;height: auto;" src="../../static/icon/cart.png"></image>
+		</i-badge>
+	</view>
+	<view class="tobuy" bindtap="duihuan" >
+		<view>{{goods.price}}积分</view>
+		<view>立即兑换</view>
+	</view>
+	<view class="tosharebuy" bindtap="gocart" >
+		<view>{{goods.price}}积分</view>
+		<view>加入购物车</view>
+	</view>
+	
+	
+</view>
+
+
+<view class="addCart" wx:else>
+
+	<view class="cartImg" bindtap="tocart">
+		<i-badge count="{{goods.shoppingCatNum}}">
+			<image mode="widthFix" style="width: 50rpx;height: auto;" src="../../static/icon/cart.png"></image>
 		</i-badge>
 	</view>
 	<view class="tobuy" bindtap="gobuy">
-		<view>168元</view>
+		<view>{{goods.price}}元</view>
 		<view>直接购买</view>
 	</view>
-	<view class="tosharebuy" bindtap="gobuy">
-		<view>158元</view>
+	<view class="tosharebuy" bindtap="gobuyspell">
+		<view>{{goods.spellGroupPrice}}元</view>
 		<view>分享购买</view>
 	</view>
 </view>
 <!-- 规格参数 -->
-<view class="specno {{specshow?'spec':''}}" wx:hidden="{{specshow}}">
-	<view class="close" bindtap="cloceSpec">X</view>
+<view style="border-top: 1px solid #ececec;" class="specno {{specshow?'spec':''}}" wx:hidden="{{specshow}}">
+	<view class="close" bindtap="cloceSpec">
+		<icon type="cancel" size="50rpx" color="#8d8d94" />
+	</view>
+
+
 	<view class="spec_data">
 		<view class="goods_info">
-			<image class="cart_img" mode="widthFix" src="{{specData.specimg.img}}"></image>
+			<image class="cart_img" mode="scaleToFill" src="{{imgurl}}{{goods.imgPath}}"></image>
 		</view>
 		<view class="cart_info">
-			<view>{{specData.specimg.name}}</view>
-			<view class="cart_price">¥{{specData.specimg.price}}</view>
-			<view>已售出{{specData.specimg.num}}</view>
+			<view>{{goods.name}}</view>
+			<view class="cart_price" wx:if="{{enjoy}}">{{goods.price}}积分</view>
+			<view class="cart_price" wx:else>¥{{state==0?goods.price:goods.spellGroupPrice}}</view>
+			<view>已售出{{goods.goodsNum}}</view>
 		</view>
 	</view>
-	<view class="selcet">
+	<view class="selcet" wx:if="{{goods.choose==1}}">
 		<view>口味选择</view>
 		<view class="selcet_item">
-			<view  wx:for="{{specData.specList}}">{{item}}</view>
+			<view data-type="1" class="{{type==1? 'active':''}}" bindtap="selcctType">微辣</view>
+			<view data-type="2" class="{{type==2? 'active':''}}" bindtap="selcctType">中辣</view>
+			<view data-type="3" class="{{type==3? 'active':''}}" bindtap="selcctType">特辣</view>
 		</view>
 		<view class="bottom"></view>
 	</view>
@@ -85,5 +121,17 @@
 			<text class="cart-count-add" bindtap="addCount">+</text>
 		</view>
 	</view>
-	<view class="confirm">确定</view>
+	<view class="confirm" bindtap="addcart">确定</view>
+</view>
+
+<!-- 分享 -->
+<view class="shareview {{isshare?'isshare':''}}">
+	<button  bindtap="sharesuccess" style="background: none;border: none;" plain="ture" open-type="share" hover-class="none">
+		<image style="" src="../../static/img/weixinshare.png"></image>
+		<view style="font-size: 22rpx;line-height: 60rpx;">好友和微群</view>
+	</button>
+	<view class="shareicon" bindtap="closeshare">
+		<icon type="cancel" size="45rpx" color="#8d8d94" />
+	</view>
+
 </view>

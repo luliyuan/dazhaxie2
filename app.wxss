@@ -1,23 +1,30 @@
 /**app.wxss**/
-page{line-height:1.6;font-family:-apple-system-font,Helvetica Neue,sans-serif;background: #f6f6f6;}
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  color: transparent;
+page {
+	line-height: 1.6;
+	font-family: -apple-system-font, Helvetica Neue, sans-serif;
+	background: #f6f6f6;
 }
 
-.header{
-	line-height: 100rpx;
-	margin-top: 30rpx;
+.container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 200rpx 0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	color: transparent;
+}
+
+.header {
+	height: 73px;
+	line-height: 80px;
+	margin-top: 0;
 	text-align: center;
 	font-size: 30rpx;
 	font-weight: bold;
@@ -28,4 +35,12 @@ page{line-height:1.6;font-family:-apple-system-font,Helvetica Neue,sans-serif;ba
 	z-index: 100;
 	background: #FFFFFF;
 	border-bottom: 1px solid #ececec;
+}
+
+.i-tabs-tab-title {
+	color: #000000;
+}
+
+page {
+	overflow-x: hidden;
 }

@@ -1,0 +1,54 @@
+/* pages/addressDetail/addressDetail.wxss */
+/* page{
+	padding-top: 132rpx;
+} */
+.cell-item {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  background: white;
+	justify-content: space-between;
+}
+
+.title {
+  width: 80px;
+  font-size: 15px;
+}
+
+.name {
+  flex: 1;
+  text-align: right;
+  font-size: 14px;
+}
+
+picker {
+  flex: 1;
+}
+
+.picker {
+  text-align: right;
+  font-size: 14px;
+}
+
+.addressDetail {
+  background: white;
+  padding: 10px;
+}
+textarea {
+  font-size: 14px;
+  padding: 5px 10px;
+  height: 60px;
+}
+
+.addBtn {
+  width: 120px;
+  height: 35px;
+  margin: 0 auto;
+  text-align: center;
+  background: red;
+  color: white;
+  border-radius: 5px;
+  line-height: 35px;
+  font-size: 15px;
+  margin-top: 20px;
+}

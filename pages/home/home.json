@@ -1,9 +1,12 @@
 {
-  
-  "usingComponents": {
-    "takeOutFood": "/component/takeOutFood/takeOutFood",
-		"hotFood":"/component/hotFood/hotFood"
-	
-  },
-	"navigationStyle":"custom"
+
+	"usingComponents": {
+		"takeOutFood": "/component/takeOutFood/takeOutFood",
+		"hotFood": "/component/hotFood/hotFood",
+		"i-icon": "../../dist/icon/index",
+		"water":"/component/water/water",
+		"ice":"/component/ice/ice"
+
+	},
+	"enablePullDownRefresh":true
 }

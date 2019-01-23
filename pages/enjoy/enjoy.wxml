@@ -1,51 +1,65 @@
 <!--pages/enjoy/enjoy.wxml-->
+<view hidden="{{!gongzhong}}" class="guanzhu" style="position: fixed;width: 100%;z-index: 100;">
+<official-account  bindload="jzcc"></official-account>	
+
+	<!-- <view bindtap="closegong" style="width: 100rpx;float: right;font-size: 30rpx;text-align: center;line-height: 60rpx;">关闭</view> -->
+</view>
+
 <view class="page">
-	<view class="header">海间北岛餐厅</view>
-	<view class="info">
+	<!-- <view class="header">海间北岛餐厅</view> -->
+	<!-- <view class="info">
 		<image src="../../static/img/face.png"></image>
 		<view class="info-show">
 			<view class="name">赵祥子</view>
 			<view class="integral">
 				<view class="integral_current">当前积分：<text>1200</text> <text class="border"></text></view>
-				<view class="integral_record"  style="background:url(../../static/img/rocord.png)no-repeat;background-size: 23rpx;">积分记录</view>
+				<view class="integral_record" style="background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAZCAYAAADaILXQAAACAElEQVRIibWWT4iNURiHn++mm38LGpo/TSaaMkQpUdJIxFpWiiwtZkUspGzs1GQxKcaKTA3KysokkSFTGhRTRI2ZuY0MNUNDIo/F910dp3vvdLv3/urdnO+8T+e87++c8yUqZbQW2AysBzqAFqAJmAOmgSngLTAGvC5JUMPIq8fVu1anx+oZdVXIC8HH1EKV0Fhf1bMx/HyN0Fg3VBJ1HzBUrvA1qCdRh4GdDYBP5oClDQAD5HPApQbBB4sNvVPnhr40smJvncDXDazYpfZkA63qZfVblcA/GXRLxjmi7kW9mk0Y8P/Tuks9ZVqyMXVcnVYn1DfqPdMDsz/KK1bgGeqLYAU/1GvqxihhoWhVL6qfA1YhUQeBQyW6PQM8B+4DE8As8B1YDKwA2oFuYBvQViJ/NFE7gPH6O5Hu4ra2qvNVNrGSDhhZMafeqhE6pLYYWPGEqRuWZYNNpnf6I/XLArBZdcT0Lm8PFjqq9ifqE2AH8Bs4CfRFtWsGuoANQB74BbwjfYEK0dyjQC+wGigk6giwPZjwCbgNPACekjqlnNpI3bIbOAisCb5NJephYKACYJL0vZzLdrcIWJ6B11XIO1es0c0aGxlr2Mgtp+sEvmDgljA61T71Q5XAGfWK6Xn5x0ss/d+SA/YAm4DOrL4rgSXAT9Kr4CPwHngFPATmY8hf9ojyO7YvmfYAAAAASUVORK5CYII=)no-repeat;background-size: 21rpx;">积分记录</view>
 			</view>
-			
+
+		</view>
+	</view> -->
+	<view class="info">
+		<!-- <image src="../../static/img/face.png"></image> -->
+		<open-data class="face" type="userAvatarUrl"></open-data>
+		<view class="info-show">
+			<!-- <view class="name">赵祥子</view> -->
+			<open-data class="name" type="userNickName"></open-data>
+			<view class="integral">
+				<view class="integral_current">当前积分：<text>{{jifen}}</text> <text class="border"></text></view>
+				<navigator url="/pages/integral/integral" hover-class="none">
+					<view class="integral_record">
+						<image mode="aspectFit" style="height: 23rpx;width: 23rpx;margin-right: 4px;" src="../../static/img/rocord.png"></image>
+						积分记录
+					</view>
+				</navigator>
+			</view>
+			<view style="font-size:23rpx;line-height:44rpx;">会员编号：{{number}}</view>
+
 		</view>
 	</view>
-	<view class="banner">
-		<image src="../../static/img/zhuanjifen.png"></image>
+	<view class="banner" bindtap="jifeninfo">
+		<image mode="widthFix" src="{{imgurl}}{{jifenimg}}"></image>
+	</view>
+	<view class="banner2">
+		<image mode="widthFix" style="height: auto;" src="../../static/img/enjoyhai.png"></image>
 	</view>
 	<!-- 商品列表 -->
 	<view class="goods_list">
-		<view class="goods_li">
-			<image src="../../static/img/goods_img.png"></image>
-			<view class="goods_info">
-				<view class="title">
-					大闸蟹
+		<view class="goods_list_view" wx:for="{{enjoyList}}">
+			<view class="goods_li">
+				<image mode="scaleToFill" src="{{imgurl}}{{item.imgPath}}"></image>
+				<view class="goods_info">
+					<view class="title">
+						{{item.name}}
+					</view>
+					<view class="goods_class">{{item.title}}</view>
+					<view class="operation">
+						<view>{{item.price}}积分</view>
+						<view wx:if="{{item.price<=jifen}}" data-id="{{item.id}}" bindtap="duihuan">立即兑换</view>
+						<view wx:else style="background: #E2E2E2;color: #333333;border: none;">积分不足</view>
+					</view>
 				</view>
-				<view class="goods_class">外卖熟食</view>
-				<view class="operation">
-					<view>500积分</view>
-					<view>立即兑换</view>
-				</view>
-				
 			</view>
 		</view>
-		
-		<view class="goods_li">
-			<image src="../../static/img/goods_img.png"></image>
-			<view class="goods_info">
-				<view class="title">
-					大闸蟹
-				</view>
-				<view class="goods_class">外卖熟食</view>
-				<view class="operation">
-					<view>500积分</view>
-					<view>立即兑换</view>
-				</view>
-				
-			</view>
-		</view>
-		
 	</view>
 </view>

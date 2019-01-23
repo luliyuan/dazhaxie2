@@ -4,16 +4,17 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"nodeModules": true,
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
-	"appid": "wx044e39619928138c",
+	"libVersion": "2.4.3",
+	"appid": "wx87be8603ccbff3b2",
 	"projectname": "dazhaxie",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -37,13 +38,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 6,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "home",
 					"pathName": "pages/home/home",
-					"query": ""
+					"query": "",
+					"scene": "1001"
 				},
 				{
 					"id": 1,
@@ -58,10 +60,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "enjoy",
 					"pathName": "pages/enjoy/enjoy",
-					"query": ""
+					"query": "",
+					"scene": "1011"
 				},
 				{
 					"id": -1,
@@ -70,16 +73,17 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "商品规格",
-					"pathName": "pages/details/details",
+					"id": 5,
+					"name": "优惠券",
+					"pathName": "pages/coupon/coupon",
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "商品规格",
-					"pathName": "pages/search/search",
-					"query": ""
+					"id": 6,
+					"name": "支付",
+					"pathName": "pages/pay/pay",
+					"query": "shopId=413,414,415",
+					"scene": "1011"
 				},
 				{
 					"id": -1,
@@ -92,6 +96,150 @@
 					"name": "订单",
 					"pathName": "pages/order/order",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分",
+					"pathName": "pages/integral/integral",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "积分支付",
+					"pathName": "pages/enjoypay/enjoypay",
+					"query": "shopId=85&enjoy=true&type=1&goodsNumber=1",
+					"scene": "1001"
+				},
+				{
+					"id": 11,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "zzz",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": 13,
+					"name": "订单详情",
+					"pathName": "pages/orderDetail/orderDetail",
+					"query": "id=65"
+				},
+				{
+					"id": -1,
+					"name": "保存地址",
+					"pathName": "pages/addressDetail/addressDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "编辑地址",
+					"pathName": "pages/addressList/addressList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "商品详情",
+					"pathName": "pages/details/details",
+					"query": "id=87",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "选择地址",
+					"pathName": "pages/selectAddress/selectAddress",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择地址",
+					"pathName": "pages/order/order",
+					"query": ""
+				},
+				{
+					"id": 20,
+					"name": "选择地址",
+					"pathName": "pages/compage/start/start",
+					"query": "location=山东省青岛市市南区宁夏路"
+				},
+				{
+					"id": 21,
+					"name": "支付",
+					"pathName": "pages/pay/pay",
+					"query": "shopId=435",
+					"scene": "1022"
+				},
+				{
+					"id": 22,
+					"name": "商品详情",
+					"pathName": "pages/details/details",
+					"query": "id=89",
+					"scene": "1001"
+				},
+				{
+					"id": 23,
+					"name": "积分支付",
+					"pathName": "pages/enjoypay/enjoypay",
+					"query": "shopId=98&enjoy=true&type=1&goodsNumber=1",
+					"scene": "1011"
+				},
+				{
+					"id": 24,
+					"name": "商品详情",
+					"pathName": "pages/details/details",
+					"query": "hrgid=1",
+					"scene": "1001"
+				},
+				{
+					"id": 25,
+					"name": "home",
+					"pathName": "pages/enjoy/enjoy",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "start",
+					"pathName": "pages/compage/start/start",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 28,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 29,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": "1022"
+				},
+				{
+					"id": -1,
+					"name": "支付",
+					"pathName": "pages/enjoypay/enjoypay",
+					"query": "shopId=98&enjoy=true&type=1&goodsNumber=1",
+					"scene": "1022"
 				}
 			]
 		}

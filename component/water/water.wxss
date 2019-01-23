@@ -1,0 +1,125 @@
+/* component/artItem/artItem.wxss */
+page {
+	background: #FFFFFF;
+}
+
+.swiper image {
+	width: 100%;
+	height: 290rpx;
+} 
+
+.swiper {
+	padding-bottom: 20rpx;
+	border-bottom: 1px solid #ededed;
+	height: 290rpx;
+}
+
+.swiper swiper {
+
+	height: 290rpx;
+}
+
+
+
+.goods-list {
+	padding: 20rpx 32rpx;
+	display: flex;
+	border-bottom: 1px solid #ededed;
+	position: relative;
+	overflow: hidden;
+}
+
+.goodsImg {
+	width: 320rpx;
+	height: 275rpx;
+	border-radius: 12rpx;
+
+}
+
+.goods-info {
+	padding-left: 55rpx;
+	overflow: hidden;
+}
+
+.goods-list .title {
+	font-size: 32rpx;
+	font-weight: bold;
+	line-height: 32rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+
+}
+
+.goods-list .info {
+	font-size: 25rpx;
+	margin-top: 12rpx;
+	line-height: 32rpx;
+	color: #5a5959;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+}
+
+.goods-list .info2 {
+	font-size: 25rpx;
+	line-height: 30rpx;
+	color: #5a5959;
+}
+
+.goods-label {
+	display: flex;
+
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 10rpx;
+}
+
+.goods-label view {
+	display: inline;
+	font-size: 20rpx;
+	color: #3c3a3b;
+	padding: 0 8rpx;
+	line-height: 30rpx;
+	border: 1px solid #9e9e9e;
+	margin-top: 5px;
+
+}
+
+.goods-label .assemble {
+	color: #ff4403;
+	border: 1px solid #ff4403;
+}
+
+.price {
+	display: flex;
+	align-items: center;
+	/* padding-top: 22rpx; */
+	justify-content: space-between;
+}
+
+.myAssemble {
+	background: #ff4200;
+	color: #FFFFFF;
+	width: 68rpx;
+	height: 33rpx;
+	font-size: 16rpx;
+	padding: 0;
+	line-height: 33rpx;
+	margin-right: 16rpx;
+	display: none;
+
+}
+
+.price image {
+	width: 24px;
+}
+
+.price view {
+	display: flex;
+	align-items: center;
+}

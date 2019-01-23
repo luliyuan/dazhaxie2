@@ -1,63 +1,75 @@
 <!--pages/my/my.wxml-->
-<view class="header">海间北岛餐厅</view>
+<!-- <view class="header">海间北岛餐厅</view> -->
 <view class="page">
 	<view class="info">
-		<image src="../../static/img/face.png"></image>
+		<!-- <image src="../../static/img/face.png"></image> -->
+		<open-data class="face" type="userAvatarUrl"></open-data>
 		<view class="info-show">
-			<view class="name">赵祥子</view>
-			<view class="integral">
-				<view class="integral_current">当前积分：<text>1200</text> <text class="border"></text></view>
-				<view class="integral_record"  style="background:url(../../static/img/rocord.png)no-repeat;background-size: 23rpx;">积分记录</view>
+			<!-- <view class="name">赵祥子</view> -->
+			<open-data class="name" type="userNickName"></open-data>
+			<view class="integral" >
+				<view class="integral_current">当前积分：<text>{{jifen}}</text> <text class="border"></text></view>
+				<navigator url="/pages/integral/integral" hover-class="none">
+					<view class="integral_record">
+						<image mode="aspectFit" style="height: 23rpx;width: 23rpx;margin-right: 4px;" src="../../static/img/rocord.png"></image>
+						积分记录
+					</view>
+				</navigator>
 			</view>
-			
+			<view style="font-size:23rpx;line-height:44rpx;">会员编号：{{number}}</view>
 		</view>
 	</view>
 	<view>
-		<view class="my_ul">
+		<view class="my_ul" bindtap="toorder">
 			<view>
 				<image style="height: 39rpx;" class="icon" src="../../static/icon/dingdan.png"></image>
-				<view class="my_li"> 
+				<view class="my_li">
 					我的订单
 				</view>
 			</view>
+
 			<i-icon type="enter" size="22" color="#afafaf" />
 		</view>
-		<view class="my_ul">
-			<view>
-				<image style="height: 39rpx;" class="icon" src="../../static/icon/youhuiquan.png"></image>
-				<view class="my_li"> 
-					我的优惠劵
+		<navigator url="/pages/coupon/coupon" hover-class="none">
+			<view class="my_ul">
+				<view data-index="2">
+					<image style="height: 39rpx;" class="icon" src="../../static/icon/youhuiquan.png"></image>
+					<view class="my_li">
+						我的优惠劵
+					</view>
 				</view>
+				<i-icon type="enter" size="22" color="#afafaf" />
 			</view>
-			<i-icon type="enter" size="22" color="#afafaf" />
-		</view>
-		<view class="my_ul">
-			<view>
-				<image style="height: 39rpx;" class="icon" src="../../static/icon/dizhi.png"></image>
-				<view class="my_li"> 
-					地址管理
+		</navigator>
+		<navigator url="/pages/addressList/addressList" hover-class="none">
+			<view class="my_ul">
+				<view>
+					<image style="height: 39rpx;" class="icon" src="../../static/icon/dizhi.png"></image>
+					<view class="my_li">
+						地址管理
+					</view>
 				</view>
+				<i-icon type="enter" size="22" color="#afafaf" />
 			</view>
-			<i-icon type="enter" size="22" color="#afafaf" />
-		</view>
-		<view class="my_ul">
-			<view>
+		</navigator>
+		<view class="my_ul" style="height: 110rpx;">
+			<view style="width: 100%;">
 				<image style="height: 39rpx;" class="icon" src="../../static/icon/lianxiwomen.png"></image>
-				<view class="my_li"> 
-					联系客服
+				<view class="my_li" style="width: 90%;margin-left: 40rpx;">
+					<button style="font-size:28rpx;background: none;border: none;padding: 0;text-align: left;"plain="ture"  hover-class="none" open-type='contact'>联系客服</button>
 				</view>
 			</view>
 			<i-icon type="enter" size="22" color="#afafaf" />
 		</view>
-		<view class="my_ul">
+		<view class="my_ul" bindtap="toabout">
 			<view>
 				<image style="height: 39rpx;" class="icon" src="../../static/icon/guanyuwomen.png"></image>
-				<view class="my_li"> 
+				<view class="my_li">
 					关于我们
 				</view>
 			</view>
 			<i-icon type="enter" size="22" color="#afafaf" />
 		</view>
 	</view>
-	
+
 </view>

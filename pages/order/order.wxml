@@ -1,31 +1,44 @@
 <!--pages/order/order.wxml-->
-<view class="header">海间北岛餐厅</view>
+<!-- <view class="header">海间北岛餐厅</view> -->
 <i-tabs current="{{ current }}" color="#ff4200" bindchange="handleChange">
-    <i-tab key="tab1" title="全部"></i-tab>
-    <i-tab key="tab2" title="配送中"></i-tab>
-    <i-tab key="tab3" title="已完成"></i-tab>
+	<i-tab key="1" title="全部"></i-tab>
+	<i-tab key="2" title="配送中"></i-tab>
+	<i-tab key="3" title="已完成"></i-tab>
 </i-tabs>
-
-<view class="order">
+<view class="order" wx:for="{{order}}" data-id="{{item.Id}}" bindtap="orerinfo">
 	<view class="order_list">
 		<view class="order_num">
-			<view>
-				<view>订单编号：1234586</view>
-				<view style="color: #ff4200;">配送中</view>
+			<view style="border-bottom:2px solid #f6f6f6;">
+				<view>订单编号：{{item.orderNum}}</view>
+				<view style="color: #ff4200;">{{item.stateName}}</view>
 			</view>
-			<view class="order_info">
-				<image mode="widthFix" src="../../static/img/cart.png"></image>
+			<view class="order_info" wx:for="{{item.goods}}" wx:for-item="itemName" >
+				<image mode="scaleToFill" src="{{imgurl}}{{itemName.imgpath}}"></image>
 				<view>
-					<view class="title">红毛蟹</view>
-					<view class="spec">口味：不辣</view>
-					<view class="price"><text>¥136.00</text> <text> X2</text></view>
-				</view>
+					<view class="title">{{itemName.name}}</view>
+					<view class="spec">口味：{{itemName.typeName}}</view>
+					<view class="price">
+						<text wx:if="{{item.orderType==1}}">¥{{itemName.goodsprice}}</text> 
+						<text wx:if="{{item.orderType==2}}">{{itemName.goodsprice}}积分</text> 
+						<text> X{{itemName.goodsNumber}}</text></view>
+					</view>
 			</view>
-			<text class="totol_price">
-				共两件商品 合计：¥272.00
+			<text class="totol_price" wx:if="{{item.orderType==1}}">
+				共{{item.goodsNumber}}件商品 合计：¥{{item.price}}
 			</text>
-			
-			
+			<text class="totol_price" wx:if="{{item.orderType==2}}">
+				共{{item.goodsNumber}}件商品 合计：¥{{item.price}}
+			</text>
+
+
 		</view>
 	</view>
+</view>
+<view wx:if="{{!order.length}}" style="padding-top: 284rpx;flex: 1;background: #FFFFFF;">
+ <image mode="scaleToFill" style="width: 244rpx;height: 244rpx;margin-left: auto;margin-right: auto;display: block;" src="../../static/img/ordernone.png"></image>
+ 
+ <view style="font-size: 28rpx;color: #949494;line-height: 60rpx;margin-top: 60rpx;text-align: center;">
+	 还没有订单
+ </view>
+	<view style="font-size: 28rpx;color: #949494;line-height: 60rpx;text-align: center;">您暂时还没有订单~<text bindtap="tohome" style="color: #ff4200;text-decoration: underline;">立即下单</text></view>
 </view>

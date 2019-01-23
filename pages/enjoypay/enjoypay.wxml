@@ -1,0 +1,186 @@
+<!--pages/pay/pay.wxml-->
+<!-- <view class="header">海间北岛餐厅</view> -->
+
+
+<view class="pay">
+	<view wx:if="{{eatmothod==2}}">
+		<view class="address" wx:if="{{!address}}" bindtap="toaddresslist">
+			<i-icon type="coordinates" size="24" color="#000000" />
+			<text>请选择收货地址</text>
+			<i-icon style="float: right;" type="enter" size="26" color="#afafaf" />
+		</view>
+		<view wx:else class="myaddress" bindtap="toaddresslist">
+			<view class="myaddress_1">
+				<view><text>{{address.name}}</text><text style="margin-left: 20px;">{{address.phone}}</text></view>
+				<view>{{address.area}}</view>
+			</view>
+			<view >
+				<i-icon type="enter" size="22" color="#afafaf" />
+			</view>
+		</view>
+	</view>
+	
+
+
+
+	<view class="order_info">
+		<image mode="scaleToFill" src="{{imgurl}}{{order.imgPath}}"></image>
+		<view>
+			<view class="title">{{order.name}}</view>
+			<view class="spec" wx:if="{{order.type==1}}">口味：微辣</view>
+			<view class="spec" wx:if="{{order.type==2}}">口味：中辣</view>
+			<view class="spec" wx:if="{{order.type==3}}">口味：特辣</view>
+			<view class="price"><text>{{order.price}}积分</text> <text> X{{order.goodNumber}}</text></view>
+		</view>
+	</view>
+
+	<view class="eatmothod">
+		<view style="background: #FFFFFF;">
+			请选择就餐方式
+		</view>
+		<view>
+			<view class="check">
+				<view style="border-radius:10px;" data-peiprice="{{freight}}"  data-index="2" bindtap="select">
+					<text>外送</text>
+					<icon wx:if="{{eatmothod==2}}"  size="38rpx" type="success" color="red" />
+					<icon wx:else type="circle" size="38rpx"  />
+				</view>
+				<view style="margin-left:25rpx;border-radius:10px;" data-peiprice="0" data-index="1" bindtap="select">
+					<text>自提</text>
+					<icon wx:if="{{eatmothod==1}}" size="38rpx" type="success" color="red"  />
+					<icon wx:else type="circle" size="38rpx" />
+				</view>
+				
+				<view  data-peiprice="0" data-index="3" bindtap="select">
+					<text>堂食</text>
+					<icon wx:if="{{eatmothod==3}}" size="38rpx" type="success" color="red"  />
+					<icon wx:else type="circle" size="38rpx" />
+				</view>
+
+			</view>
+		</view>
+	</view>
+
+	<view class="goods_info">
+		<view class="time" wx:if="{{eatmothod==2}}">
+			<text>{{index==0?'期望送达时间':'期望送达时间'}}</text>
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{time}}">
+				<view style="font-size: 24rpx;color: #ff4200;" class="picker">
+				  {{time[index]}}
+				 
+				  <i-icon type="enter" size="22" color="#afafaf" />
+				</view>
+				
+			</picker>
+		</view>
+		
+		
+		<view>
+			<text>商品总价</text>
+			<text>{{goodsPayMoney}}积分</text>
+		</view>
+		<!-- <view wx:if="{{!enjoy}}">
+			<text>优惠券</text>
+			<view bindtap="showcon">
+				<text wx:if="{{couinfo}}" style="color: #6f6f6f;font-weight: 500;">{{couinfo}}</text>
+				<text wx:else style="color: #6f6f6f;font-weight: 500;">你有{{vouchers.length}}个优惠券待使用</text>
+
+				<i-icon type="enter" size="22" color="#afafaf" />
+			</view>
+		</view> -->
+
+
+		<!-- <view class="showcon" wx:if="{{showcon}}">
+			<view class="coupon" style="width: 100%;">
+				<view bindtap="choosecon" data-vouchersId="{{item.vouchersId}}" data-price="{{item.price}}" data-vouinfo="满{{item.payMoney}}减{{item.price}}"
+				 wx:for="{{vouchers}}" class="coupon_list" style="background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArIAAACmCAIAAACpw/tzAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjNFOTM5OTE4Rjc2OTExRThBNUUxRDFEQ0M5RUZGMDVFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjNFOTM5OTE5Rjc2OTExRThBNUUxRDFEQ0M5RUZGMDVFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6M0U5Mzk5MTZGNzY5MTFFOEE1RTFEMURDQzlFRkYwNUUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6M0U5Mzk5MTdGNzY5MTFFOEE1RTFEMURDQzlFRkYwNUUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6QprvtAAAOGUlEQVR42uzd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) no-repeat; background-size: 100% 100%;">
+					<view class="coupon_price">
+						<view class="price1" style="line-height: 45rpx;height: 45rpx;"><text style="color: #FFFFFF;">{{item.price}}</text><text>元</text></view>
+						<view class="info1">满{{item.payMoney}}减{{item.price}}</view>
+					</view>
+					<view class="coupon_info">
+						<text>{{item.title}}</text>
+						<text wx:if="{{item.label==1}}">{{item.content}}(仅外卖使用) </text>
+						<text wx:elif="{{item.label==2}}">{{item.content}}(仅活物使用) </text>
+						<text wx:elif="{{item.label==3}}">{{item.content}}(仅冰鲜使用) </text>
+						<text>使用期限至:{{item.endTime}}</text>
+					</view>
+				</view>
+			</view>
+
+
+		</view> -->
+		<view>
+			<text>包装费</text>
+			<text>¥{{distribution}}</text>
+		</view>
+		<view>
+			<text>运费</text>
+			<text>¥{{freight}}</text>
+		</view>
+		<view class="total_price">
+			<view></view>
+			<view>合计：<text>{{goodsPayMoney}}积分</text></view>
+		</view>
+		<!-- <view>
+			<text>是否需要发票</text>
+			<view>
+				<radio-group class="radio-group" bindchange="radioChange">
+					<label class="radio" wx:for="{{items}}">
+						<radio size="10" color="#8b8b8b" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+					</label>
+				</radio-group>
+			</view>
+		</view> -->
+	</view>
+	<!-- 发票信息 -->
+	<!-- <view class="invoice_info" wx:if="{{radiotype==1}}">
+		<view class="invoice_info_item">
+			<view><text style="color: #d81f07;">*</text>抬头信息</view>
+			<input value="{{invoiceInfo}}" bindinput="invoiceInfo" type="text" placeholder="请输入发票抬头信息" right="true" />
+		</view>
+		<view class="border"></view>
+		<view class="invoice_info_item">
+			<view><text style="color: #d81f07;">*</text>发票税号</view>
+			<input value="{{invoiceNumber}}" bindinput="invoiceNumber" type="number" placeholder="请输入发票税号" style="text-align: right;" />
+		</view>
+		<view class="border"></view>
+		<view class="invoice_info_item">
+			<view><text style="color: #FFFFFF;">*</text>地址电话</view>
+			<input value="{{userPhone}}" bindinput="userPhone" type="number" placeholder="请输入地址电话" />
+		</view>
+		<view class="border"></view>
+		<view class="invoice_info_item">
+			<view><text style="color: #FFFFFF;">*</text>开户银行</view>
+			<input value="{{bank}}" bindinput="bank" type="text" placeholder="请输入开户银行" />
+
+		</view>
+		<view class="border"></view>
+		<view class="invoice_info_item">
+			<view><text style="color: #FFFFFF;">*</text>银行卡号</view>
+			<input vlaue="{{cardId}}" bindinput="cardId" type="number" placeholder="请输入银行卡号" />
+
+		</view>
+		<view class="border"></view>
+	</view> -->
+
+	<!-- 备注 -->
+	<view class="remarks">
+		<view><text style="color: #FFFFFF;">*</text>备注</view>
+		<view>
+			<input value="{{content}}" bindinput="content" type="text" placeholder="口味偏好等要求" />
+			<i-icon style="float: right;" type="enter" size="22" color="#FFFFFF" />
+		</view>
+
+	</view>
+
+	<view class="gopay">
+		<view>
+			<text>付款:</text>
+			<text wx:if="{{paymoney==0}}" style="color: #ff4200;">¥{{paymoney}}</text>
+			<text wx:else style="color: #ff4200;">¥{{paymoney?paymoney: jifenpay}}</text>
+		</view>
+		<view bindtap="gopay">去支付</view>
+	</view>
+
+</view>

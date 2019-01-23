@@ -1,0 +1,67 @@
+<!--pages/selectAddress/selectAddress.wxml-->
+<!-- <view class="header">海间北岛餐厅</view> -->
+
+<view class="searchTable">
+
+	<view class="searchView">
+		<input class="{{istext?'searchBar searchBarInput':'searchBar'}}" bindinput="bindKeyInput" placeholder="请输入您的地址"
+		 confirm-type="search" maxlength="100" bindconfirm="clickSearch" bindfocus="clickSearchView" bindblur="loseInputBlur"
+		 focus="true" />
+		<!-- <button bindtap="clickSearch" hover-class="btnClick">搜索</button> -->
+		<icon class="" color="#00899f" size="14"></icon>
+	</view>
+</view>
+
+	<!-- 列表 -->
+	<view wx:if="{{tips.length>0}}" class="addressListView">
+		<block wx:for="{{tips}}">
+			<view class="addressCell" bindtap="didSelectCell" data-index="{{index}}" data-location="{{item.location}}" data-title="{{item.title}}">
+
+				<view class="addressse">
+					<text>{{item.address}}</text>
+				</view>
+
+				<view class="detail">
+					<text>{{item.title}}</text>
+				</view>
+			</view>
+		</block>
+
+	</view>
+<view wx:else>
+	<view class="locationNow" bindtap='choose'>
+		<view>{{location}}</view>
+		<i-icon type="coordinates" size="22" color="#000000" />
+	</view>
+	<view class="myaddresstitle">
+		我的地址
+	</view>
+	<view class="myaddress" wx:if="{{addlist}}">
+		<view class="myaddress_1" bindtap="myaddressto" data-addressid="{{addlist.id}}" data-lat="{{addlist.lat}}" data-lng="{{addlist.lng}}"
+		 data-area="{{addlist.area}}">
+			<view><text>{{addlist.name}}</text><text style="margin-left: 20px;">{{addlist.phone}}</text></view>
+			<view>{{addlist.area}}</view>
+		</view>
+		<view bindtap="gotoaddlist">
+			<i-icon type="enter" size="22" color="#d9d9d9" />
+		</view>
+	</view>
+	<view class="address" wx:else bindtap="gotoaddlist">
+		<i-icon type="coordinates" size="24" color="#000000" />
+		<text>请选择收货地址</text>
+		<i-icon style="float: right;" type="enter" size="22" color="#d9d9d9" />
+	</view>
+	<view class="myaddresstitle">
+		历史记录
+	</view>
+	<view class="myaddress" wx:for="{{userAddress}}">
+		<view class="myaddress_1">
+			<view><text>{{item.name}}</text><text style="margin-left: 20px;">{{item.phone}}</text></view>
+			<view>{{item.area}}</view>
+		</view>
+	
+		<text class="gouse" data-addressid="{{item.id}}" bindtap="gouseaddress">继续使用</text>
+	
+	</view>
+</view>
+

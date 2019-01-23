@@ -1,18 +1,22 @@
 /* component/artItem/artItem.wxss */
+page {
+	background: #FFFFFF;
+}
 
-image {
+.swiper image {
 	width: 100%;
-	height: 267rpx;
+	height: 290rpx;
 }
 
 .swiper {
 	padding-bottom: 20rpx;
-	border-bottom: 1px solid #c6c6c6;
-	height: 267rpx;
+	border-bottom: 1px solid #ededed;
+	height: 290rpx;
 }
-.swiper swiper{
-	
-	height: 267rpx;
+
+.swiper swiper {
+
+	height: 290rpx;
 }
 
 
@@ -20,28 +24,45 @@ image {
 .goods-list {
 	padding: 20rpx 32rpx;
 	display: flex;
+	border-bottom: 1px solid #ededed;
+	position: relative;
+	overflow: hidden;
 }
 
 .goodsImg {
 	width: 320rpx;
 	height: 275rpx;
+	border-radius: 12rpx;
+
 }
 
 .goods-info {
 	padding-left: 55rpx;
+	overflow: hidden;
 }
 
 .goods-list .title {
 	font-size: 32rpx;
 	font-weight: bold;
 	line-height: 32rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	
+
 }
 
 .goods-list .info {
 	font-size: 25rpx;
 	margin-top: 12rpx;
-	line-height: 30rpx;
+	line-height: 34rpx;
 	color: #5a5959;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
 }
 
 .goods-list .info2 {
@@ -68,16 +89,20 @@ image {
 	margin-top: 5px;
 
 }
-.goods-label .assemble{
+
+.goods-label .assemble {
 	color: #ff4403;
 	border: 1px solid #ff4403;
 }
-.price{
+
+.price {
 	display: flex;
 	align-items: center;
-	padding-top: 22rpx;
+	/* padding-top: 22rpx; */
+	justify-content: space-between;
 }
-.myAssemble{
+
+.myAssemble {
 	background: #ff4200;
 	color: #FFFFFF;
 	width: 68rpx;
@@ -85,5 +110,16 @@ image {
 	font-size: 16rpx;
 	padding: 0;
 	line-height: 33rpx;
-	
+	margin-right: 16rpx;
+	display: none;
+
+}
+
+.price image {
+	width: 24px;
+}
+
+.price view {
+	display: flex;
+	align-items: center;
 }

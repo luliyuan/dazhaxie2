@@ -1,0 +1,24 @@
+/* pages/homeDetail/homeDetail.wxss */
+@import "/vendor/wxParse/wxParse.wxss";
+page{
+	padding-bottom: 90rpx;
+}
+.gobuy{
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:90rpx;
+	line-height:90rpx;
+	box-sizing:border-box;
+	background:#ff4200;
+	font-size:30rpx;
+	text-align:center;
+	color: #FFFFFF;
+
+	
+
+}
+image{
+	width: 100% !important;
+}

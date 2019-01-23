@@ -1,5 +1,9 @@
 //index.js
 //获取应用实例
+var qcloud = require('../../vendor/y-sdk/index');
+var config = require('../../config')
+
+
 const app = getApp()
 
 Page({
@@ -16,6 +20,7 @@ Page({
     })
   },
   onLoad: function () {
+    this.csreq()
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -42,6 +47,31 @@ Page({
         }
       })
     }
+  },
+  csreq:function(){
+    var that = this
+    qcloud.request({
+      url: config.home.swileList,
+      method: 'GET',
+      login: true,
+      data: {
+        yt: 'cscs'
+      },
+      success(res) {
+        console.log(res)
+        var resdata = res.data
+        that.setData({
+          swpList: resdata
+        })
+        // console.log('request success', resdata.msg);
+      },
+      fail(error) {
+        console.log('request fail', error);
+      },
+      complete() {
+        // console.log('request complete'); 
+      }
+    });
   },
   getUserInfo: function(e) {
     console.log(e)

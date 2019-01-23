@@ -1,37 +1,53 @@
-image {
+.swiper image {
 	width: 100%;
-	height: 267rpx;
+	height: 290rpx;
+}
+
+.xiajia {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #FFFFFF;
+	opacity: 0.8;
+	color:#737373;
+
 }
 
 .swiper {
-	
-	height: 267rpx;
-}
-.swiper swiper{
-	
-	height: 267rpx;
+	height: 290rpx;
 }
 
-.goods-list{
-	padding-left:11px;
-	padding-right:11px;
+.swiper swiper {
+
+	height: 290rpx;
+}
+
+.goods-list {
+	padding-left: 12rpx;
+	padding-right: 12rpx;
 	padding-top: 5rpx;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	
+
 }
-.goods-list >view{
-	width: 346rpx;
-	height: 384rpx;
+
+.goods-list>view {
+	width: 357rpx;
+	height: 397rpx;
 	position: relative;
 	margin-top: 11rpx;
 }
-.goods-list view image{
+
+.goods-list view image {
 	width: 100%;
 	height: 100%;
+	border-radius: 12rpx;
 }
-.goods-list .bottomTitle{
+
+.goods-list .bottomTitle {
 	position: absolute;
 	bottom: 0;
 	background: #011422;
@@ -44,10 +60,13 @@ image {
 	justify-content: center;
 	align-items: center;
 }
-.bottomTitle text{
+
+.bottomTitle text {
 	color: #FFFFFF;
 	font-size: 20rpx;
-}.bottomTitle button{
+}
+
+.bottomTitle button {
 	width: 175rpx;
 	height: 50rpx;
 	background: #ff2265;

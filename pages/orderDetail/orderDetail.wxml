@@ -1,0 +1,70 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<!-- <view class="header">海间北岛</view> -->
+<view class="user_info" wx:if="{{orderdetail.takeType==2}}">
+	<view><text>{{orderdetail.userName}}</text><text>{{orderdetail.userPhone}}</text></view>
+	<view>{{orderdetail.userAddress}}</view>
+</view>
+<view class="order_info" wx:for="{{orderdetail.goods}}">
+	<image mode="scaleToFill" src="{{imgurl}}{{item.imgpath}}"></image>
+	<view>
+		<view class="title">{{item.name}}</view>
+		<view class="spec">口味：{{item.typeName}}</view>
+		<view class="price">
+			<text wx:if="{{orderdetail.orderType==2}}">{{item.goodsprice}}积分</text> 
+			<text wx:if="{{orderdetail.orderType==1}}">¥{{item.goodsprice}}</text> 
+			
+			<text> X{{item.goodsNumber}}</text></view>
+	</view>
+</view>
+
+<view class="order">
+	<view class="orer_title">订单信息</view>
+	<view class="order_list">
+		<text>订单编号：</text>
+		<text>{{orderdetail.orderNum}}</text>
+	</view>
+	<view class="order_list">
+		<text>金额：</text>
+		<text wx:if="{{orderdetail.orderType==1}}">¥{{orderdetail.goodsPrice}}</text>
+		<text wx:if="{{orderdetail.orderType==2}}">{{orderdetail.goodsPrice}}积分</text>
+	</view>
+	<view class="order_list" wx:if="{{orderdetail.orderType==1}}">
+		<text>抵扣金额：</text>
+		<text>¥{{orderdetail.vouchersPrice}}</text>
+		<!-- <text wx:if="{{orderdetail.orderType==2}}">{{orderdetail.vouchersPrice}}积分</text> -->
+	</view>
+	<view class="order_list">
+		<text>实际支付：</text>
+		<text wx:if="{{orderdetail.orderType==1}}">¥{{orderdetail.price}}</text>
+		<text wx:if="{{orderdetail.orderType==2}}">¥{{orderdetail.price}}</text>
+	</view>
+	<view class="order_list" wx:if="{{orderdetail.orderType==1}}">
+		<text>是否需要发票：</text>
+		<text>{{orderdetail.invoice?'需要发票':'不需要发票'}}</text>
+	</view>
+	<view class="order_list" wx:if="{{orderdetail.orderType==1}}">
+		<text>获得积分：</text>
+		<text wx:if="{{orderdetail.takeType==1}}">{{orderdetail.goodsPrice*1.2}}</text>
+		<text wx:if="{{orderdetail.takeType==2}}">{{orderdetail.goodsPrice}}</text>
+	</view>
+	<view class="order_list">
+		<text>创建时间：</text>
+		<text>{{orderdetail.createTime}}</text>
+	</view>
+	<view class="order_list">
+		<text>付款时间：</text>
+		<text>{{orderdetail.payTime?orderdetail.payTime:''}}</text>
+	</view>
+	<view class="order_list">
+		<text>就餐方式：</text>
+		<text>{{orderdetail.takeType==1?'自提':'外送'}}</text>
+	</view>
+	<view wx:if="{{orderdetail.takeType==2}}" class="order_list">
+		<text>配送时间：</text>
+		<text>{{orderdetail.time}}</text>
+	</view>
+	<view class="order_list">
+		<text>备注：</text>
+		<text>{{orderdetail.content?orderdetail.content:'暂无备注'}}</text>
+	</view>
+</view>

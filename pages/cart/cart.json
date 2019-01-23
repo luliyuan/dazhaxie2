@@ -2,6 +2,6 @@
 	"usingComponents": {
     "i-checkbox-group": "../../dist/checkbox-group/index",
     "i-checkbox": "../../dist/checkbox/index",
-	"hotFood":"/component/select/select"
-}
+	"Select":"/component/select/select"
+	}
 }

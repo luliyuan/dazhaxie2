@@ -1,7 +1,12 @@
 /* pages/order/order.wxss */
 
-page{
+/* page{
 	padding-top: 132rpx;
+} */
+page{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 .order{
 	padding: 0 30rpx;
@@ -10,12 +15,12 @@ page{
 .order_list{
 	background: #FFFFFF;
 	padding: 0 30rpx;
+	border-radius: 12rpx;
 }
 .order_num>view{
 	display: flex;
 	font-size: 22rpx;
 	line-height: 64rpx;
-	border-bottom: 2px solid #f6f6f6;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -32,7 +37,7 @@ page{
 .order_info image{
 	width: 138rpx;
 	height: 138rpx;
-	border-radius: 10px;
+	border-radius: 12rpx;
 }
 .title{
 	line-height: 36rpx;

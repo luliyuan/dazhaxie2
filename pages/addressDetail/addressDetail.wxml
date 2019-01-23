@@ -1,0 +1,25 @@
+<!--pages/addressDetail/addressDetail.wxml-->
+<!-- <view class="header">海间北岛餐厅</view> -->
+<view class='cell-item'>
+  <view class='title'>姓名</view>
+  <input class='name' value='{{userName}}' bindinput="userNameInput" placeholder='请输入姓名'></input>
+</view>
+<view class='cell-item'>
+  <view class='title'>电话</view>
+  <input class='name' value='{{userPhone}}' bindinput="userPhoneInput" placeholder='请输入电话' type='number' maxlength='11'></input>
+</view>
+<view class='cell-item' bindtap='chooselocation'>
+  <view class='title'> 地区</view>
+  <!-- <picker mode="region" bindchange="chooselocation" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      当前选择：{{region[0] ?region[0]:"选择省"}}/{{region[1] ?region[1]:"市"}}/{{region[2] ?region[2]:"区"}}
+    </view>
+  </picker> -->
+	<input class='name'  maxlength="40" disabled value='{{userPcc}}' placeholder="请选择所在地区" />
+</view>
+<view class='addressDetail'>
+  <view class='title'>详细地址</view>
+  <textarea value='{{userAddress}}' bindinput="AddressInput" placeholder='请输入详细地址'></textarea>
+</view>
+
+<view class='addBtn'  bindtap="saveform">保存</view>

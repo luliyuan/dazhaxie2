@@ -1,0 +1,109 @@
+/* pages/addressList/addressList.wxss */
+/* page{
+	padding-top: 132rpx;
+} */
+.header{
+	text-align: left;
+	padding-left: 30rpx;
+}
+.item {
+  background: white;
+  margin-bottom: 10px;
+}
+
+.content {
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+}
+
+.name-phone {
+  display: flex;
+  font-size: 14px;
+}
+
+.name {
+  padding-right: 40px;
+}
+
+.phone {
+  flex: 1;
+}
+
+.address {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.buttons {
+  display: flex;
+  padding: 10px;
+  font-size: 14px;
+  color: #777;
+}
+
+.default {
+  display: flex;
+  flex: 1;
+}
+
+.default image {
+  height: 20px;
+  width: 20px;
+  background: red;
+  margin-right: 5px;
+}
+
+.edit {
+  display: flex;
+  padding-right: 10px;
+}
+
+.edit image {
+  height: 20px;
+  width: 20px;
+  
+  margin-right: 5px;
+}
+
+.delete {
+  display: flex;
+}
+
+.delete image {
+  height: 20px;
+  width: 20px;
+  
+  margin-right: 5px;
+}
+
+.addBtn {
+  width: 120px;
+  height: 35px;
+  margin: 0 auto;
+  text-align: center;
+  background: red;
+  color: white;
+  border-radius: 5px;
+  line-height: 35px;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.noneAddress {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*垂直居中*/
+  justify-content: center; /*水平居中*/
+	background: #FFFFFF;
+}
+
+.noneAddress image {
+  
+  width: 120px;
+  height: 120px;
+	margin: 0 auto;
+	display: block;
+}
